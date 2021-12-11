@@ -38,8 +38,20 @@ func (controller relationshipTypeController) GetByType(c echo.Context) error {
 }
 
 func (controller relationshipTypeController) Update(c echo.Context) error {
+	var relationshipType models.RelationshipType
 
-	return nil
+	err := c.Bind(&relationshipType)
+	if err != nil {
+		// TODO create a model for this error
+		return err
+	}
+
+	err = controller.service.Update(&relationshipType)
+	if err != nil {
+		return err
+	}
+
+	return c.JSON(http.StatusOK, relationshipType)
 }
 
 func (controller relationshipTypeController) List(c echo.Context) error {
