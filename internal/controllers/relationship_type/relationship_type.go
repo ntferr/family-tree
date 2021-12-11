@@ -41,3 +41,12 @@ func (controller relationshipTypeController) Update(c echo.Context) error {
 
 	return nil
 }
+
+func (controller relationshipTypeController) List(c echo.Context) error {
+	relationshipTypes, err := controller.service.List()
+	if err != nil {
+		return err
+	}
+
+	return c.JSON(http.StatusOK, relationshipTypes)
+}

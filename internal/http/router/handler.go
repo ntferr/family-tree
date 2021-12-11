@@ -33,6 +33,7 @@ func SetupRouter() *echo.Echo {
 		{
 			relationType.POST("", rltType.Create)
 			relationType.GET("/type", rltType.GetByType)
+			relationType.GET("/list", rltType.List)
 		}
 	}
 

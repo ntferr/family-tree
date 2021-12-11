@@ -14,6 +14,7 @@ type RelationshipTypeController interface {
 	Create(c echo.Context) error
 	GetByType(c echo.Context) error
 	Update(c echo.Context) error
+	List(c echo.Context) error
 }
 
 func NewRelationshipTypeController(service relationship_type.Service) RelationshipTypeController {
