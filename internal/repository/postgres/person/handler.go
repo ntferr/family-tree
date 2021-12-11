@@ -13,7 +13,7 @@ type PersonRepository interface {
 	GetByName(name string) (*models.Person, error)
 	List() ([]models.Person, error)
 	Update(person *models.Person) error
-	Delete(id int) error
+	Delete(id string) error
 }
 
 func NewPersonRepository() PersonRepository {
@@ -85,7 +85,7 @@ func (pr personRepository) Update(person *models.Person) error {
 
 }
 
-func (pr personRepository) Delete(id int) error {
+func (pr personRepository) Delete(id string) error {
 	db, err := postgres.GetDB()
 	if err != nil {
 		return err

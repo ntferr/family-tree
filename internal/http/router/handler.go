@@ -2,9 +2,12 @@ package router
 
 import (
 	"family-tree/internal/controllers/health"
+	"family-tree/internal/controllers/person"
 	"family-tree/internal/controllers/relationship_type"
 	"family-tree/internal/http/middlewares"
+	pDB "family-tree/internal/repository/postgres/person"
 	rltTypeDB "family-tree/internal/repository/postgres/relationship_type"
+	pService "family-tree/internal/services/person"
 	rltTypeService "family-tree/internal/services/relationship_type"
 
 	"github.com/labstack/echo/v4"
@@ -18,23 +21,31 @@ func SetupRouter() *echo.Echo {
 	e.Use(middleware.Recover())
 	e.Use(middleware.RequestID())
 
-	rltTypeDB := rltTypeDB.NewRelationshipTypeRepository()
+	relationTypeDB := rltTypeDB.NewRelationshipTypeRepository()
+	personDB := pDB.NewPersonRepository()
 
-	rltTypeService := rltTypeService.NewService(rltTypeDB)
+	relationTypeService := rltTypeService.NewService(relationTypeDB)
+	personService := pService.NewService(personDB)
 
 	h := health.NewHealth()
-	rltType := relationship_type.NewRelationshipTypeController(rltTypeService)
+	rltType := relationship_type.NewRelationshipTypeController(relationTypeService)
+	personController := person.NewController(personService)
 
 	router := e.Group("family-tree/v1")
 	{
 		router.GET("/health", h.Status)
 
-		relationType := router.Group("/relationship_types")
+		relationTypeRouter := router.Group("/relationships/types")
 		{
-			relationType.POST("", rltType.Create)
-			relationType.GET("", rltType.GetByType)
-			relationType.GET("/list", rltType.List)
-			relationType.PUT("", rltType.Update)
+			relationTypeRouter.POST("", rltType.Create)
+			relationTypeRouter.GET("", rltType.GetByType)
+			relationTypeRouter.GET("/list", rltType.List)
+			relationTypeRouter.PUT("", rltType.Update)
+		}
+
+		personRouter := router.Group("/people")
+		{
+			personRouter.POST("", personController.Create)
 		}
 	}
 
