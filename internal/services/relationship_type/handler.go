@@ -27,11 +27,7 @@ func (s service) Create(relationshipType *models.RelationshipType) error {
 	if rltType.Type == "" {
 
 		err = s.repo.Create(relationshipType)
-		if err != nil {
-			return err
-		}
-
-		return nil
+		return err
 	}
 
 	return err
