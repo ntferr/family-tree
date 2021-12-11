@@ -32,7 +32,7 @@ func SetupRouter() *echo.Echo {
 		relationType := router.Group("/relationship_types")
 		{
 			relationType.POST("", rltType.Create)
-			relationType.GET("/type", rltType.GetByType)
+			relationType.GET("", rltType.GetByType)
 			relationType.GET("/list", rltType.List)
 		}
 	}
