@@ -7,5 +7,6 @@ var (
 
 	ErrToGetParamRelationshipType = errors.New("Error on get relationship type on params")
 
-	ErrToGetParamPerson = errors.New("Need insert an id or name by query param")
+	ErrToGetParamPerson = errors.New("Need insert an valid id or name by query param")
+	ErrToGetParamID     = errors.New("Need insert an valid id by query param")
 )
