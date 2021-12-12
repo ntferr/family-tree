@@ -11,37 +11,37 @@
         "type": "cousin"<br>
     }<br>
 
-- {GET} localhost:9000/family-tree/v1/relationships/types
-    Pega por queryParam: [?type=cousin]
+- {GET} localhost:9000/family-tree/v1/relationships/types<br>
+    Pega por queryParam: [?type=cousin]<br>
 
-- {GET} localhost:9000/family-tree/v1/relationships/types/list
-    Traz uma lista dos tipos de relações que existem no banco
+- {GET} localhost:9000/family-tree/v1/relationships/types/list<br>
+    Traz uma lista dos tipos de relações que existem no banco<br>
 
-- {PUT} localhost:9000/family-tree/v1/relationships/types
-    Segue o payload para atualização:
-    {
-        "id": "insira o id do type de relacionamento que deseja atualizar",
-        "type": "cousins"
-    }
+- {PUT} localhost:9000/family-tree/v1/relationships/types<br>
+    Segue o payload para atualização:<br>
+    {<br>
+        "id": "insira o id do type de relacionamento que deseja atualizar",<br>
+        "type": "cousins"<br>
+    }<br>
 ### Person
-- {POST} localhost:9000/family-tree/v1/people
-    Segue o payload para inserção:
-    {
-        "name": "Nathan Ferreira"
-    }
+- {POST} localhost:9000/family-tree/v1/people<br>
+    Segue o payload para inserção:<br>
+    {<br>
+        "name": "Nathan Ferreira"<br>
+    }<br>
 
-- {GET} localhost:9000/family-tree/v1/people
-    Pega por queryParam: ["?id=id_da_person"] ou ["?name=name_da_person"]
+- {GET} localhost:9000/family-tree/v1/people<br>
+    Pega por queryParam: ["?id=id_da_person"] ou ["?name=name_da_person"]<br>
 
-- {GET} localhost:9000/family-tree/v1/people/list
-    Traz uma lista de pessoas
+- {GET} localhost:9000/family-tree/v1/people/list<br>
+    Traz uma lista de pessoas<br>
 
-- {PUT} localhost:9000/family-tree/v1/people
-    Segue o payload para atualização:
-    {
-        "id": "insira o id da pessoa que deseja atualizar",
-        "name": "Nathan Ferreira da Silva"
-    }
+- {PUT} localhost:9000/family-tree/v1/people<br>
+    Segue o payload para atualização:<br>
+    {<br>
+        "id": "insira o id da pessoa que deseja atualizar",<br>
+        "name": "Nathan Ferreira da Silva"<br>
+    }<br>
 
 ### Relationship
 
