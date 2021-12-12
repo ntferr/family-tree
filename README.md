@@ -5,11 +5,11 @@
 ### Health
 - {GET} localhost:9000/family-tree/v1/health
 ### Relationship Type
-- {POST} localhost:9000/family-tree/v1/relationship_types
-    Segue o payload para inserção:
-    {
-        "type": "cousin"
-    }
+- {POST} localhost:9000/family-tree/v1/relationship_types<br>
+    Segue o payload para inserção:<br>
+    {<br>
+        "type": "cousin"<br>
+    }<br>
 
 - {GET} localhost:9000/family-tree/v1/relationships/types
     Pega por queryParam: [?type=cousin]
