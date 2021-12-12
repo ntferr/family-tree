@@ -46,6 +46,9 @@ func SetupRouter() *echo.Echo {
 		personRouter := router.Group("/people")
 		{
 			personRouter.POST("", personController.Create)
+			personRouter.GET("", personController.GetBy)
+			personRouter.PUT("", personController.Update)
+			personRouter.GET("/list", personController.List)
 		}
 	}
 

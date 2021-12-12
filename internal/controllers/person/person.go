@@ -11,7 +11,7 @@ import (
 func (pc controller) Create(c echo.Context) error {
 	var person models.Person
 
-	err := c.Bind(person)
+	err := c.Bind(&person)
 	if err != nil {
 		return errors.BadRequest(c, err)
 	}
@@ -34,4 +34,29 @@ func (pc controller) GetBy(c echo.Context) error {
 	}
 
 	return c.JSON(http.StatusOK, person)
+}
+
+func (pc controller) Update(c echo.Context) error {
+	var person models.Person
+
+	err := c.Bind(&person)
+	if err != nil {
+		return errors.BadRequest(c, err)
+	}
+
+	err = pc.service.Update(&person)
+	if err != nil {
+		return errors.InternarServerError(c, err)
+	}
+
+	return c.JSON(http.StatusOK, person)
+}
+
+func (pc controller) List(c echo.Context) error {
+	people, err := pc.service.List()
+	if err != nil {
+		return errors.InternarServerError(c, err)
+	}
+
+	return c.JSON(http.StatusOK, people)
 }
