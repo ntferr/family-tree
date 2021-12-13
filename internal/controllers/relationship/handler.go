@@ -14,6 +14,7 @@ type Controller interface {
 	Create(c echo.Context) error
 	GetByID(c echo.Context) error
 	List(c echo.Context) error
+	GetRelationshipByName(c echo.Context) error
 }
 
 func NewController(service relationship.Service) Controller {

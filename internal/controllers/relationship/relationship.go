@@ -46,3 +46,17 @@ func (rc controller) List(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, relationships)
 }
+
+func (rc controller) GetRelationshipByName(c echo.Context) error {
+	name := c.QueryParam("name")
+	if name == "" {
+		return errors.NotFound(c, name)
+	}
+
+	data, err := rc.service.GetRelationByName(name)
+	if err != nil {
+		return errors.InternarServerError(c, err)
+	}
+
+	return c.JSON(http.StatusOK, data)
+}

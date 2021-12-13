@@ -46,6 +46,7 @@ func SetupRouter() *echo.Echo {
 			relationRouter.POST("", rltController.Create)
 			relationRouter.GET("", rltController.GetByID)
 			relationRouter.GET("/list", rltController.List)
+			relationRouter.GET("/members", rltController.GetRelationshipByName)
 
 			relationTypeRouter := relationRouter.Group("/types")
 			{

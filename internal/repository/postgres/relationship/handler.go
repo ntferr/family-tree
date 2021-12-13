@@ -82,3 +82,13 @@ func (rr relationshipRepository) GetByPersonID(id string) ([]models.Relationship
 
 	return relationships, nil
 }
+
+// func (rr relationshipRepository) GetMember(relationship *models.Relationship) (*models.Member, error) {
+// 	db, err := postgres.GetDB()
+// 	if err != nil {
+// 		return nil, err
+// 	}
+
+// 	err = db.
+// 			Where(&models.Person{ID: })
+// }
