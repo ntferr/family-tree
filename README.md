@@ -67,10 +67,21 @@
 
 
 ## Architecture
-
 ### Frameworks utilizados
 - Netflix/env   - para variáves de ambiente
 - Echo v4       - para web service
 - Gorm          - para acesso e comunicação com banco
 - Gorm Postgres - para comunicação entre gorm e postgres
 - Google UUID   - geração de chaves primárias
+
+## Como rodar a migration
+Acesse o launch.json dentro da pasta .vscode.
+Dentro do arquivo estará apontando para aplicação
+
+"program": "${workspaceFolder}/cmd/api/main.go",
+
+mude o path acima para
+
+"${workspaceFolder}/internal/repository/migration/main.go"
+
+e rode a aplicação pelo vscode
