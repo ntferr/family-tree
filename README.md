@@ -44,6 +44,27 @@
     }<br>
 
 ### Relationship
+- {POST} localhost:9000/family-tree/v1/relationships>
+    
+    Segue o payload para inserção
+    {
+        "person_a_id": "9c989156-0c17-46c1-a79a-f323b63a9b8c",
+        "person_b_id": "35677072-840c-4bf5-8897-c2f666f677f6",
+        "type_id": 5
+    }   
+
+- {GET} localhost:9000/family-tree/v1/relationships
+    
+    Pega por queryParam [?id=38b423bd-d679-40e7-9e58-56785825a39b] id da relação
+
+- {GET} localhost:9000/family-tree/v1/relationships/list
+
+    Traz uma lista de relações
+
+- {GET} localhost:9000/family-tree/v1/relationships/members
+
+    Pega por queryParam [?name=Nathan Ferreira da Silva] name da person
+
 
 ## Architecture
 
