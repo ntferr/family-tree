@@ -6,6 +6,6 @@ type Member struct {
 }
 
 type Data struct {
-	Name   string   `json:"name`
+	Name   string   `json:"name"`
 	Member []Member `json:"member"`
 }

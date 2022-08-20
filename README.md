@@ -3,40 +3,41 @@
 ## Endpoints
 
 ### Health
-- {GET} localhost:9000/family-tree/v1/health
+> GET localhost:9000/family-tree/v1/health
+
 ### Relationship Type
-- {POST} localhost:9000/family-tree/v1/relationship_types<br>
+> POST localhost:9000/family-tree/v1/relationship_types<br>
     Segue o payload para inserção:<br>
     {<br>
         "type": "cousin"<br>
     }<br>
 
-- {GET} localhost:9000/family-tree/v1/relationships/types<br>
+> GET localhost:9000/family-tree/v1/relationships/types<br>
     Pega por queryParam: [?type=cousin]<br>
 
-- {GET} localhost:9000/family-tree/v1/relationships/types/list<br>
+> GET localhost:9000/family-tree/v1/relationships/types/list<br>
     Traz uma lista dos tipos de relações que existem no banco<br>
 
-- {PUT} localhost:9000/family-tree/v1/relationships/types<br>
+> PUT localhost:9000/family-tree/v1/relationships/types<br>
     Segue o payload para atualização:<br>
     {<br>
         "id": "insira o id do type de relacionamento que deseja atualizar",<br>
         "type": "cousins"<br>
     }<br>
 ### Person
-- {POST} localhost:9000/family-tree/v1/people<br>
+>  POST localhost:9000/family-tree/v1/people<br>
     Segue o payload para inserção:<br>
     {<br>
         "name": "Nathan Ferreira"<br>
     }<br>
 
-- {GET} localhost:9000/family-tree/v1/people<br>
+> GET localhost:9000/family-tree/v1/people<br>
     Pega por queryParam: ["?id=id_da_person"] ou ["?name=name_da_person"]<br>
 
-- {GET} localhost:9000/family-tree/v1/people/list<br>
+> GET localhost:9000/family-tree/v1/people/list<br>
     Traz uma lista de pessoas<br>
 
-- {PUT} localhost:9000/family-tree/v1/people<br>
+> PUT localhost:9000/family-tree/v1/people<br>
     Segue o payload para atualização:<br>
     {<br>
         "id": "insira o id da pessoa que deseja atualizar",<br>
@@ -44,7 +45,7 @@
     }<br>
 
 ### Relationship
-- {POST} localhost:9000/family-tree/v1/relationships>
+> POST localhost:9000/family-tree/v1/relationships>
     
     Segue o payload para inserção
     {
@@ -53,15 +54,15 @@
         "type_id": 5
     }   
 
-- {GET} localhost:9000/family-tree/v1/relationships
+> GET localhost:9000/family-tree/v1/relationships
     
     Pega por queryParam [?id=38b423bd-d679-40e7-9e58-56785825a39b] id da relação
 
-- {GET} localhost:9000/family-tree/v1/relationships/list
+> GET localhost:9000/family-tree/v1/relationships/list
 
     Traz uma lista de relações
 
-- {GET} localhost:9000/family-tree/v1/relationships/members
+> GET localhost:9000/family-tree/v1/relationships/members
 
     Pega por queryParam [?name=Nathan Ferreira da Silva] name da person
 
