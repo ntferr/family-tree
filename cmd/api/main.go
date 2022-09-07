@@ -10,9 +10,9 @@ import (
 func main() {
 	router := router.SetupRouter()
 
-	address := fmt.Sprintf(settings.GetSettings().Host + ":" + settings.GetSettings().Port)
+	serviceAddress := fmt.Sprintf(settings.GetSettings().Host + ":" + settings.GetSettings().Port)
 
-	if err := router.Start(address); err != nil {
+	if err := router.Start(serviceAddress); err != nil {
 		log.Fatalln("Error on start router: ", err)
 	}
 }
